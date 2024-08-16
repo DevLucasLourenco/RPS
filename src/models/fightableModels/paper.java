@@ -1,21 +1,22 @@
 package models.fightableModels;
 
+import models.fightableModels.pattern.RPS.RPS;
 import models.userModel.User;
 
-public class paper {
-    private User user;
+public class paper extends RPS{
+    // Map<String, RPS> resultOfBattle = new Map<>();
+
+        
+    public paper(User user) {
+        super(user);
+        
+    }
+
 
     
 
 
     // Getters & Setters
-    
-    public User getUser() {
-        return user;
-    }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
 
 }
