@@ -19,7 +19,7 @@ public abstract class RPS {
         }
         
         if (rps.getClass().getSimpleName().equals("scissors")){
-            this.result = instance.X_SCISSORS;
+            this.result = instance.isX_SCISSORS();
         } 
         
         if (rps.getClass().getSimpleName().equals("paper")){
