@@ -1,42 +1,42 @@
 package models.userModel;
 
-import java.util.Scanner;
 import java.util.Random;
-
+import java.util.Scanner;
 import models.fightableModels.paper;
+import models.fightableModels.pattern.RPS.RPS;
 import models.fightableModels.rock;
 import models.fightableModels.scissors;
-import models.fightableModels.pattern.RPS.RPS;
 
 public class User {
     private String name;
     private RPS choice;
+    private final boolean fate;
     private int countVictory;
 
-    private Scanner scanner = new Scanner(System.in);
+    protected Scanner scanner = new Scanner(System.in);
 
-
-    public User(String name){
-        setName(name);
-    }
 
     public User(String name, boolean fate){
-        setName(name);
-        if (fate) {
-            choice = switchCaseToSelect(new Random().nextInt(3)+1) ;
-        }
+        this.name = name;
+        this.fate = fate;
+        
     }
 
     public void showData() {
         System.out.println("User: " + getName() + " | Victory: " + getCountVictory());
     }
 
-    public void chooseBetween(){
+    public RPS chooseBetween(){
+        if (this.fate) {
+            this.choice = switchCaseToSelect(new Random().nextInt(3)+1);
+            return this.choice;
+        }
         System.out.println(getName()+", choose between those values below");
         System.out.println("1) PAPER\n2) ROCK\n3) SCISSOR");
         int num = scanner.nextInt();
         
-        choice = switchCaseToSelect(num);
+        this.choice = switchCaseToSelect(num);
+        return this.choice;
     }
 
     private RPS switchCaseToSelect(Integer num){

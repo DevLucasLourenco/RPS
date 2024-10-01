@@ -13,34 +13,29 @@ public abstract class RPS {
         this.user = user;
     }
 
-    public boolean againstTo(RPS rps) {
-        System.out.println(user.getName()+" | "+user.getChoice().getClass().getSimpleName()+" X "+rps.getUser().getName()+" | "+rps.getUser().getChoice().getClass().getSimpleName());
-
+    public boolean againstTo(RPS rps, RPS instance) {
         if (rps.getClass().getSimpleName().equals("rock")){
-            System.out.println(" - passou por aqui - pedra");
-            this.result = rps.isX_SCISSORS();
+            this.result = instance.isX_ROCK();
         }
         
         if (rps.getClass().getSimpleName().equals("scissors")){
-            System.out.println(" - passou por aqui - tesoura");
-            this.result = rps.X_PAPER;
+            this.result = instance.X_SCISSORS;
         } 
         
         if (rps.getClass().getSimpleName().equals("paper")){
-            System.out.println(" - passou por aqui - papel");
-            this.result = rps.X_ROCK;
+            this.result = instance.isX_PAPER();
         }
 
-        System.out.println(result+"\n");
-        addPointIfPossible(result);
-        return result;
+        addPointIfWon(this.result);
+        return this.result;
     }
 
-    private void addPointIfPossible(boolean result){
+    private void addPointIfWon(boolean result){
         if (result){
             getUser().setCountVictory(getUser().getCountVictory()+1);
         }
     }
+    
 
     // Getters & Setters
     public User getUser() {
