@@ -20,8 +20,8 @@ public class App {
                 RPS choiceP2 = p2.getChoice();
                 
                 System.out.println(String.format("%s (%s) X %s (%s)", p1.getName(), choiceP1.getClass().getSimpleName(), p2.getName(), choiceP2.getClass().getSimpleName()) );
-                choiceP1.againstTo(p2.getChoice(), choiceP1);
-                choiceP2.againstTo(p1.getChoice(), choiceP2);
+                choiceP1.againstTo(p2.getChoice());
+                choiceP2.againstTo(p1.getChoice());
 
                 p1.showData();
                 p2.showData();

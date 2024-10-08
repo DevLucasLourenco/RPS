@@ -13,17 +13,17 @@ public abstract class RPS {
         this.user = user;
     }
 
-    public boolean againstTo(RPS rps, RPS instance) {
+    public boolean againstTo(RPS rps) {
         if (rps.getClass().getSimpleName().equals("rock")){
-            this.result = instance.isX_ROCK();
+            this.result = this.isX_ROCK();
         }
         
         if (rps.getClass().getSimpleName().equals("scissors")){
-            this.result = instance.isX_SCISSORS();
+            this.result = this.isX_SCISSORS();
         } 
         
         if (rps.getClass().getSimpleName().equals("paper")){
-            this.result = instance.isX_PAPER();
+            this.result = this.isX_PAPER();
         }
 
         addPointIfWon(this.result);
